@@ -1,9 +1,8 @@
 import "./Form.css";
-import useLocalStorageState from "use-local-storage-state";
 import { useState } from "react";
 
 export default function Form({ onAddActivity }) {
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
 
   const [isForGoodWeather, setIsForGoodWeather] = useState(false);
 
