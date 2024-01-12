@@ -19,7 +19,7 @@ export default function Form({ onAddActivity }) {
 
   return (
     <div>
-      <header>Form</header>
+      <header>Enter your new activity here:</header>
       <form className="form" onSubmit={handleSubmit}>
         <label>
           Name:
