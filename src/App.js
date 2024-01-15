@@ -6,7 +6,6 @@ import { useState } from "react";
 import useLocalStorageState from "use-local-storage-state";
 
 function App() {
-  // const [activities, setActivities] = useState([]);
 
   const isForGoodWeather = false;
 
