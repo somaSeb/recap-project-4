@@ -1,12 +1,28 @@
 import "./App.css";
 import Form from "./components/Form/Form";
+import List from "./components/List/List";
 import React from "react";
 import { useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 function App() {
-  const [activities, setActivities] = useState([]);
 
-  function handleAddActivity(newActivity) {
+  const isForGoodWeather = false;
+
+  const [activities, setActivities] = useLocalStorageState("activities", {
+    defaultValue: [],
+  });
+
+  // Filter the activities for those whose key isForGoodWeather is equal to
+  // the global isGoodWeather variable.
+
+  const goodWeatherActivities = activities.filter(
+    (activity) => activity.isForGoodWeather === isForGoodWeather
+  );
+
+  // Instead of all activities, pass the filtered activities to the List component.
+
+  function handleAddActivity(newActivity, isForGoodWeather) {
     const newActivityWithId = {
       ...newActivity,
       id: Math.random().toString(36).substring(7),
@@ -23,6 +39,12 @@ function App() {
   return (
     <>
       <h1>Weather App</h1>
+      <List
+        onActivities={activities}
+        ongoodWeatherActivities={goodWeatherActivities}
+      >
+        activities
+      </List>
       <Form onAddActivity={handleAddActivity} />
     </>
   );

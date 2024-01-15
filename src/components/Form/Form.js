@@ -1,9 +1,8 @@
 import "./Form.css";
-import useLocalStorageState from "use-local-storage-state";
 import { useState } from "react";
 
 export default function Form({ onAddActivity }) {
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
 
   const [isForGoodWeather, setIsForGoodWeather] = useState(false);
 
@@ -19,7 +18,7 @@ export default function Form({ onAddActivity }) {
 
   return (
     <div>
-      <header>Form</header>
+      <header>Enter your new activity here:</header>
       <form className="form" onSubmit={handleSubmit}>
         <label>
           Name:
